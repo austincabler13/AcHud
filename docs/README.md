@@ -1,32 +1,32 @@
-# AcHud
+# 👑AcHud
 
 A Hud for FiveM that is Cool, and Modern.
 
-## Features
+## 📢Features
 
-- Modern and sleek design
-- Easy to configure
-- Lightweight and efficient
+- 🔮Modern and sleek design
+- 👍Easy to configure
+- 🪶Lightweight and efficient
 
-## Installation
+## 🆘Installation
 
 1. Download the latest release from the [releases page](https://github.com/yourusername/AcHud/releases).
 2. Extract the contents to your `resources` folder.
 3. Add `start AcHud` to your `server.cfg`.
 
-## Usage
+## 👥Usage
 
 - Customize the HUD by editing the `config.lua` file.
 - Restart your server to apply changes.
 
-## Contributing
+## 💖Contributing
 
 Feel free to submit issues and pull requests. Contributions are welcome!
 
-## License
+## ⚖️License
 
 This project is licensed under the MIT License.
 
-## Owner
+## 👑Owner
 
 Developed and maintained by [Austin Cabler](https://github.com/austincabler13).
