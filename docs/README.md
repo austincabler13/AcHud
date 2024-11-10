@@ -10,7 +10,7 @@ A Hud for FiveM that is Cool, and Modern.
 
 ## 🆘Installation
 
-1. Download the latest release from the [releases page](https://github.com/yourusername/AcHud/releases).
+1. Download the latest release from the [releases page](https://github.com/austincabler13/AcHud/releases).
 2. Extract the contents to your `resources` folder.
 3. Add `start AcHud` to your `server.cfg`.
 
