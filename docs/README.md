@@ -16,8 +16,8 @@ A Hud for FiveM that is Cool, and Modern.
 
 ## 👥Usage
 
-- Customize the HUD by editing the `config.lua` file.
-- Restart your server to apply changes.
+- 😎Customize the HUD by editing the `config.lua` file.
+- 🔄️Restart your server to apply changes.
 
 ## 💖Contributing
 
