@@ -1,21 +1,19 @@
--- Example function to update health and stamina, replace with actual game data
 Citizen.CreateThread(function()
     while true do
-        local playerPed = PlayerPedId()
-        local health = GetEntityHealth(playerPed) / 2 -- Convert to percentage if needed
-        local stamina = 100                           -- Replace with actual stamina calculation
+        -- Get player data
+        local player = PlayerPedId()
+        local health = GetEntityHealth(player) - 100                      -- Get health, adjust if needed
+        local stamina = GetPlayerSprintStaminaRemaining(PlayerId()) * 100 -- Convert to percentage
+        local speed = math.floor(GetEntitySpeed(player) * 3.6)            -- Convert m/s to km/h
 
-        -- Send NUI message to update HUD
+        -- Send data to NUI (HTML HUD)
         SendNUIMessage({
-            type = "updateHealth",
-            health = health
+            health = health,
+            stamina = stamina,
+            speed = speed
         })
 
-        SendNUIMessage({
-            type = "updateStamina",
-            stamina = stamina
-        })
-
-        Citizen.Wait(1000) -- Update every second
+        -- Update every 0.1 seconds
+        Citizen.Wait(100)
     end
 end)

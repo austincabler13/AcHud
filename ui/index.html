@@ -3,47 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FiveM Red-Themed HUD</title>
+    <title>FiveM Dynamic HUD</title>
     <link rel="stylesheet" href="output.css" />
-    <!-- Compiled Tailwind CSS -->
   </head>
-  <body class="bg-transparent">
-    <!-- Health Bar -->
-    <div class="flex items-center space-x-2" id="health-bar-container">
-      <img
-        id="health-icon"
-        src=""
-        alt="Health Icon"
-        class="w-6 h-6" />
-      <div class="w-64 bg-gray-800 rounded-full h-6">
+  <body class="bg-transparent font-sans">
+    <!-- HUD Container -->
+    <div class="absolute bottom-10 left-10 flex flex-col space-y-4">
+      <!-- Health Bar -->
+      <div class="flex items-center space-x-3">
+        <img
+          id="health-icon"
+          src="/assets/icons/health-icon.svg"
+          alt="Health Icon"
+          class="w-8 h-8 opacity-80" />
         <div
-          id="health-bar"
-          class="h-6 rounded-full"
-          style="width: 100%"></div>
+          class="relative w-64 bg-gray-900 rounded-full h-6 overflow-hidden shadow-lg">
+          <div
+            id="health-bar"
+            class="h-6 bg-red-600 rounded-full transition-all duration-300"></div>
+          <span
+            id="health-text"
+            class="absolute left-1/2 transform -translate-x-1/2 text-white text-sm font-semibold"
+            >100%</span
+          >
+        </div>
+      </div>
+
+      <!-- Stamina Bar -->
+      <div class="flex items-center space-x-3">
+        <img
+          id="stamina-icon"
+          src="/assets/icons/stamina-icon.svg"
+          alt="Stamina Icon"
+          class="w-8 h-8 opacity-80" />
+        <div
+          class="relative w-64 bg-gray-900 rounded-full h-6 overflow-hidden shadow-lg">
+          <div
+            id="stamina-bar"
+            class="h-6 bg-yellow-500 rounded-full transition-all duration-300"></div>
+          <span
+            id="stamina-text"
+            class="absolute left-1/2 transform -translate-x-1/2 text-white text-sm font-semibold"
+            >100%</span
+          >
+        </div>
+      </div>
+
+      <!-- Speedometer -->
+      <div class="absolute bottom-10 right-10 flex items-center space-x-3">
+        <div
+          class="relative bg-gray-900 p-4 rounded-full shadow-xl flex items-center justify-center">
+          <span id="speed" class="text-white font-bold text-3xl">0</span>
+          <span class="text-gray-400 font-semibold text-sm ml-2">KM/H</span>
+        </div>
       </div>
     </div>
 
-    <!-- Stamina Bar -->
-    <div class="flex items-center space-x-2 mt-4" id="stamina-bar-container">
-      <img
-        id="stamina-icon"
-        src=""
-        alt="Stamina Icon"
-        class="w-6 h-6" />
-      <div class="w-64 bg-gray-800 rounded-full h-6">
-        <div
-          id="stamina-bar"
-          class="h-6 rounded-full"
-          style="width: 100%"></div>
-      </div>
-    </div>
+    <script>
+      // Update HUD elements based on data from FiveM
+      window.addEventListener("message", function (event) {
+        const data = event.data;
 
-    <!-- Minimap Placeholder -->
-    <div
-      id="minimap"
-      class="absolute bottom-10 right-10 bg-gray-800 w-40 h-40 rounded-lg flex items-center justify-center text-white text-sm border-4">
-    </div>
+        if (data.health !== undefined) {
+          const healthBar = document.getElementById("health-bar");
+          const healthText = document.getElementById("health-text");
+          healthBar.style.width = data.health + "%";
+          healthText.innerText = data.health + "%";
+        }
 
-    <script src="script.js"></script>
+        if (data.stamina !== undefined) {
+          const staminaBar = document.getElementById("stamina-bar");
+          const staminaText = document.getElementById("stamina-text");
+          staminaBar.style.width = data.stamina + "%";
+          staminaText.innerText = data.stamina + "%";
+        }
+
+        if (data.speed !== undefined) {
+          document.getElementById("speed").innerText = data.speed;
+        }
+      });
+    </script>
   </body>
 </html>

@@ -348,7 +348,6 @@ input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
   -webkit-appearance: button;
-  appearance: button;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -553,4 +552,24 @@ video {
 
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
+}
+
+#minimap {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
+#health-bar-container,
+#stamina-bar-container {
+  position: absolute;
+  bottom: 12%;
+  /* Adjust as needed */
+  left: 2%;
+}
+
+#speedometer {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
 }

@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+#minimap {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+#health-bar-container,
+#stamina-bar-container {
+    position: absolute;
+    bottom: 12%;
+    /* Adjust as needed */
+    left: 2%;
+}
+
+#speedometer {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}

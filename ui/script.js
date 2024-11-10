@@ -49,3 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error loading config:', error));
 });
+
+      // Update HUD elements based on data from FiveM
+      window.addEventListener("message", function (event) {
+        const data = event.data;
+
+        if (data.health !== undefined) {
+          const healthBar = document.getElementById("health-bar");
+          const healthText = document.getElementById("health-text");
+          healthBar.style.width = data.health + "%";
+          healthText.innerText = data.health + "%";
+        }
+
+        if (data.stamina !== undefined) {
+          const staminaBar = document.getElementById("stamina-bar");
+          const staminaText = document.getElementById("stamina-text");
+          staminaBar.style.width = data.stamina + "%";
+          staminaText.innerText = data.stamina + "%";
+        }
+
+        if (data.speed !== undefined) {
+          document.getElementById("speed").innerText = data.speed;
+        }
+      });
