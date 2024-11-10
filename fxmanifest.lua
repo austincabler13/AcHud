@@ -8,16 +8,18 @@ version '1.0.0'
 ui_page 'ui/index.html'
 
 files {
-  'ui/index.html',
-  'ui/output.css',
-  'ui/script.js',
-  'config.lua'
+    'ui/index.html',
+    'ui/output.css',
+    'ui/script.js',
+    'config.lua',
+    '/assets/icons/health-icon.svg',
+    '/assets/icons/stamina-icon.svg'
 }
 
 server_scripts {
-  'server.lua'
+    'server.lua'
 }
 
 client_scripts {
-  'client.lua'
+    'client.lua'
 }
