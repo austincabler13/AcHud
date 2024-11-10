@@ -29,4 +29,4 @@ This project is licensed under the MIT License.
 
 ## 👑Owner
 
-Developed and maintained by [Austin Cabler](https://github.com/austincabler13).
+Owner and maintained by [Austin Cabler](https://github.com/austincabler13).
